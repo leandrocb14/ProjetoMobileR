@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ProjetoMobile.ViewModel"
+             Title="{Binding Item.Titulo}"
+             x:Class="ProjetoMobile.View.DetalheItemView">
+    
+    <StackLayout>
+        <StackLayout VerticalOptions="Start" Margin="30,10,30,0">
+            <Image Source="{Binding Item.DirectoryImage}"></Image>
+            <Label Text="{Binding Item.Ingrediente}" IsVisible="{Binding Item.PossuiIngrediente}"></Label>
+            <Label Text="{Binding Item.PrecoFormatado}" TextColor="Green" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+        </StackLayout>
+        <StackLayout VerticalOptions="End">
+            <Button Text="Adicionar ao carrinho" VerticalOptions="End"></Button>    
+        </StackLayout>        
+    </StackLayout>
+</ContentPage>
