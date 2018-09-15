@@ -1,4 +1,5 @@
 ﻿using ProjetoMobile.Model;
+using ProjetoMobile.Model.DAO;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,13 +12,12 @@ namespace ProjetoMobile.ViewModel
     {
 
         public List<Item> Itens { get; set; }
-
-
+        public CumprimentoUsuarioDAO CumprimentoUsuarioDAO { get; set; }
         public MenuViewModel()
         {
             this.Itens = new List<Item>();
+            this.CumprimentoUsuarioDAO = new CumprimentoUsuarioDAO();
         }
-
 
         public bool aguarde;
         public bool Aguarde
@@ -65,6 +65,13 @@ namespace ProjetoMobile.ViewModel
             Aguarde = false;
         }
 
+        public string MensagemBoasVindas
+        {
+            get
+            {
+                return CumprimentoUsuarioDAO.AvaliaHoraDeCumprimentoUsuario();
+            }
+        }
 
         private void AddItem(string directoryImage, string titulo, double preco, string ingrediente = null)
         {

@@ -22,10 +22,7 @@ namespace ProjetoMobile.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
-
-            Color color = Color.Rgb(144, 30, 120);
-            Window.SetStatusBarColor(color);
-            Window.SetNavigationBarColor(color);
+            
         }        
     }
 }

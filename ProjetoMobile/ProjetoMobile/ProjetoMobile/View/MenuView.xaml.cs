@@ -25,7 +25,7 @@ namespace ProjetoMobile.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            this.menuViewModel.GetItens();
+            this.menuViewModel.GetItens();            
             MessagingCenter.Subscribe<Item>(this, "ItemSelecionado", (msg) =>
             {
                 Navigation.PushAsync(new DetalheItemView(msg));
