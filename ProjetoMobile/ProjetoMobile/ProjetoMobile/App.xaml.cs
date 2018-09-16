@@ -21,7 +21,7 @@ namespace ProjetoMobile
             // Handle when your app starts
             MessagingCenter.Subscribe<Login>(this, "SucessoLogin", (msg) =>
             {                
-                MainPage = new NavigationPage(new MenuView());                
+                MainPage = new MasterDetailView();
             });
         }
 

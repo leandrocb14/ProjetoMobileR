@@ -12,20 +12,20 @@ using Xamarin.Forms.Xaml;
 namespace ProjetoMobile.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MenuView : ContentPage
+    public partial class CardapioView : ContentPage
     {
-        public MenuViewModel menuViewModel { get; set; }
-        public MenuView()
+        public CardapioViewModel cardapioViewModel { get; set; }
+        public CardapioView()
         {
             InitializeComponent();
-            this.menuViewModel = new MenuViewModel();
-            this.BindingContext = menuViewModel;
+            this.cardapioViewModel = new CardapioViewModel();
+            this.BindingContext = cardapioViewModel;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            this.menuViewModel.GetItens();            
+            this.cardapioViewModel.GetItens();            
             MessagingCenter.Subscribe<Item>(this, "ItemSelecionado", (msg) =>
             {
                 Navigation.PushAsync(new DetalheItemView(msg));

@@ -8,12 +8,11 @@ using Xamarin.Forms;
 
 namespace ProjetoMobile.ViewModel
 {
-    public class MenuViewModel : BaseViewModel
+    public class CardapioViewModel : BaseViewModel
     {
-
         public List<Item> Itens { get; set; }
         public CumprimentoUsuarioDAO CumprimentoUsuarioDAO { get; set; }
-        public MenuViewModel()
+        public CardapioViewModel()
         {
             this.Itens = new List<Item>();
             this.CumprimentoUsuarioDAO = new CumprimentoUsuarioDAO();
