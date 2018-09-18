@@ -33,8 +33,7 @@ namespace ProjetoMobile.View
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            MessagingCenter.Unsubscribe<ArgumentException>(this, "FalhaLogin");
-            MessagingCenter.Unsubscribe<Login>(this, "SucessoLogin");
+            MessagingCenter.Unsubscribe<ArgumentException>(this, "FalhaLogin");            
         }
     }
 }

@@ -20,5 +20,10 @@ namespace ProjetoMobile.View
             DetalheItemViewModel detalheItemViewModel = new DetalheItemViewModel(item);
             this.BindingContext = detalheItemViewModel;
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();            
+        }
     }
 }

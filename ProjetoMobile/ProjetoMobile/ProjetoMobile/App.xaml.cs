@@ -23,6 +23,10 @@ namespace ProjetoMobile
             {                
                 MainPage = new MasterDetailView();
             });
+            MessagingCenter.Subscribe<string>(this, "UsuarioDeslogado", (msg) =>
+            {                
+                MainPage = new LoginView();
+            });
         }
 
         protected override void OnSleep()

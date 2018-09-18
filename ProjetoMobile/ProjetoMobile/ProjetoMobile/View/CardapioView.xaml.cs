@@ -29,12 +29,13 @@ namespace ProjetoMobile.View
             MessagingCenter.Subscribe<Item>(this, "ItemSelecionado", (msg) =>
             {
                 Navigation.PushAsync(new DetalheItemView(msg));
+                listItensView.SelectedItem = null;
             });
         }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            MessagingCenter.Unsubscribe<Item>(this, "ItemSelecionado");
+            MessagingCenter.Unsubscribe<Item>(this, "ItemSelecionado");            
         }
 
 
