@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjetoMobile.Model.DAO
+namespace ProjetoMobile.BLL
 {
-    public class CumprimentoUsuarioDAO
+    public class CardapioBLL
     {
-        public string AvaliaHoraDeCumprimentoUsuario()
+        public string AvaliaHoraDeCumprimentoUsuario(TimeSpan horarioAtual)
         {
             TimeSpan InicioHorarioManha = new TimeSpan(0, 0, 0);
             TimeSpan FimHorarioManha = new TimeSpan(12, 0, 0);
@@ -14,12 +14,11 @@ namespace ProjetoMobile.Model.DAO
             TimeSpan FimHorarioTarde = new TimeSpan(18, 0, 0);
             TimeSpan InicioHorarioNoite = new TimeSpan(18, 0, 0);
             TimeSpan FimHorarioNoite = new TimeSpan(0, 0, 0);            
-            TimeSpan HorarioAtual = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-            if (HorarioAtual >= InicioHorarioManha && HorarioAtual < FimHorarioManha)
+            if (horarioAtual >= InicioHorarioManha && horarioAtual < FimHorarioManha)
             {
                 return "Bom dia!";
             }
-            else if (HorarioAtual >= InicioHorarioTarde && HorarioAtual < FimHorarioTarde)
+            else if (horarioAtual >= InicioHorarioTarde && horarioAtual < FimHorarioTarde)
             {
                 return "Boa tarde!";
             }

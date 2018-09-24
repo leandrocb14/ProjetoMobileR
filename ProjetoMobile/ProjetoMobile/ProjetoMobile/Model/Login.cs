@@ -11,8 +11,8 @@ namespace ProjetoMobile.Model
 
         public Login(string usuario, string senha)
         {
-            Usuario = usuario;
-            Senha = senha;
+            this.Usuario = usuario;
+            this.Senha = senha;
         }
     }
 }

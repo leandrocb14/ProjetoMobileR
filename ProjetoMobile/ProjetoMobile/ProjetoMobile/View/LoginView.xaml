@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
-             xmlns:vm="clr-namespace:ProjetoMobile.ViewModel"                    
-             BackgroundColor="#dededd"             
+             xmlns:vm="clr-namespace:ProjetoMobile.ViewModel"
+             xmlns:local="clr-namespace:ProjetoMobile"
+             Style="{StaticResource backgroundColorDefault}"
              x:Class="ProjetoMobile.View.LoginView">    
     <StackLayout>
         <StackLayout VerticalOptions="Start">
@@ -11,7 +12,7 @@
         <StackLayout Margin="64" VerticalOptions="Center">
             <Entry Keyboard="Text" Placeholder="Usuário" MaxLength="10" IsTextPredictionEnabled="True" Text="{Binding Usuario}"></Entry>
             <Entry Keyboard="Text" IsPassword="True" Placeholder="Senha" MaxLength="20" Text="{Binding Senha}"></Entry>
-            <Button Text="Entrar" Command="{Binding ComandoEntrar}" BackgroundColor="#901e78" TextColor="White"></Button>
+            <Button Text="Entrar" Command="{Binding ComandoEntrar}" Style="{StaticResource buttonDefault}"></Button>
         </StackLayout>
     </StackLayout>
 </ContentPage>

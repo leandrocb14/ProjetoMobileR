@@ -1,4 +1,5 @@
-﻿using ProjetoMobile.Model;
+﻿using ProjetoMobile.DAO;
+using ProjetoMobile.Model;
 using ProjetoMobile.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -14,25 +15,23 @@ namespace ProjetoMobile.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterView : ContentPage
     {
-
-        
+        public MasterViewModel MasterViewModel { get; set; }
         public MasterView()
         {
             InitializeComponent();
-            this.BindingContext = new MasterViewModel();
+            this.MasterViewModel = new MasterViewModel();
+            this.BindingContext = MasterViewModel;
+
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();                        
+            base.OnAppearing();            
         }
 
         protected override void OnDisappearing()
         {
-            base.OnDisappearing();
-            MessagingCenter.Unsubscribe<Login>(this, "SucessoLogin");
-            MessagingCenter.Unsubscribe<Login>(this, "UsuarioDeslogado");
-            DisplayAlert("teste", "teste", "ok");
+            base.OnDisappearing();            
         }
     }
 }

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ProjetoMobile.ViewModel"             
              Title="Cardápio"
-             BackgroundColor="#dededd"
+             Style="{StaticResource backgroundColorDefault}"
              x:Class="ProjetoMobile.View.CardapioView">
     <StackLayout Orientation="Vertical">
         <StackLayout HorizontalOptions="Start" Padding="20,20,0,0" >
@@ -32,7 +32,7 @@
                                     <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalOptions="Fill">
                                         <Label Text="{Binding Titulo}" FontAttributes="Bold" FontSize="20"></Label>
                                         <Label Text="{Binding Ingrediente}" IsVisible="{Binding PossuiIngrediente}"></Label>
-                                        <Label Text="{Binding PrecoFormatado}" HorizontalOptions="End" TextColor="Green" FontAttributes="Bold"></Label>
+                                        <Label Text="{Binding PrecoFormatado}" HorizontalOptions="End" Style="{StaticResource ToMoney}"></Label>
                                     </StackLayout>
                                 </Grid>
                             </ViewCell.View>

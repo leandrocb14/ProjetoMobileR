@@ -2,8 +2,19 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"               
              x:Class="ProjetoMobile.App">
-
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style x:Key="backgroundColorDefault" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#DEDEDD"></Setter>
+            </Style>
+            <Style x:Key="buttonDefault" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#901e78"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Style>
+            <Style x:Key="ToMoney" TargetType="Label">
+                <Setter Property="TextColor" Value="Green"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+            </Style>            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

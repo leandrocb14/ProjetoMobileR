@@ -11,6 +11,17 @@ namespace ProjetoMobile.Model
         public string Titulo { get; set; }        
         public double Preco { get; set; }
         public string Ingrediente { get; set; }
+        public Item(string titulo, double preco, string ingrediente)
+        {
+            Titulo = titulo;
+            Preco = preco;
+            Ingrediente = ingrediente;
+        }
+
+        public Item()
+        {
+
+        }
 
         public string PrecoFormatado
         {
