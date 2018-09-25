@@ -34,7 +34,7 @@ namespace ProjetoMobile.DAO
         {
             this.Itens.Add(new Item()
             {
-                //DirectoryImage = directoryImage,
+                DirectoryImage = directoryImage,
                 Titulo = titulo,
                 Ingrediente = ingrediente,
                 Preco = preco

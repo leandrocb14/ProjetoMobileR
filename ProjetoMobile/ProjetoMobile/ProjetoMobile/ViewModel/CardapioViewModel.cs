@@ -11,9 +11,11 @@ namespace ProjetoMobile.ViewModel
     public class CardapioViewModel : BaseViewModel
     {
         public CardapioDAO CardapioDAO { get; set; }
+        public CarrinhoDAO CarrinhoDAO { get; set; }
         public CardapioViewModel()
         {
-            this.CardapioDAO = new CardapioDAO();
+            this.CarrinhoDAO = new CarrinhoDAO();
+            this.CardapioDAO = new CardapioDAO();            
         }
 
         #region Binding
@@ -58,7 +60,6 @@ namespace ProjetoMobile.ViewModel
                 }
             }
         }
-
         public string MensagemBoasVindas
         {
             get

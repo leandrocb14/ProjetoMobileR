@@ -15,7 +15,7 @@ namespace ProjetoMobile.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetalheItemView : ContentPage
     {
-        public DetalheItemViewModel DetalheItemViewModel { get; set; }
+        public DetalheItemViewModel DetalheItemViewModel { get; set; }        
         public DetalheItemView(Item item)
         {
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace ProjetoMobile.View
                 var confirma = await DisplayAlert("Adicionar item", "Você tem certeza que deseja adicionar ao seu carrinho?", "Sim", "Não");
                 if (confirma)
                 {
+                    MessagingCenter.Send<Item>(msgItem, "AdicionaItemCarrinho");
                     await Navigation.PopAsync();
                 }
             });
@@ -41,7 +42,7 @@ namespace ProjetoMobile.View
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            MessagingCenter.Unsubscribe<Item>(this, "AdicionaItem");
+            MessagingCenter.Unsubscribe<Item>(this, "AdicionaItem");            
         }
 
 

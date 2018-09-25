@@ -15,9 +15,10 @@ namespace ProjetoMobile.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CardapioView : ContentPage
     {
-        public CardapioViewModel CardapioViewModel = new CardapioViewModel();
+        public CardapioViewModel CardapioViewModel { get; set; }
         public CardapioView()
         {
+            this.CardapioViewModel = new CardapioViewModel();
             this.BindingContext = CardapioViewModel;
             InitializeComponent();
         }
@@ -31,12 +32,17 @@ namespace ProjetoMobile.View
                 listItensView.SelectedItem = null;
             });
             MessagingCenter.Subscribe<string>(this, "MeuCarrinho", (msg) =>
-            {                
-                Navigation.PushAsync(new CarrinhoView());                
+            {
+                Navigation.PushAsync(new CarrinhoView(this.CardapioViewModel.CarrinhoDAO.ListarItens()));
             });
             MessagingCenter.Subscribe<string>(this, "MeusPedidos", (msg) =>
             {
-                Navigation.PushAsync(new PedidoView());                
+                Navigation.PushAsync(new PedidoView());
+            });
+            MessagingCenter.Subscribe<Item>(this, "AdicionaItemCarrinho", (msg) =>
+            {
+                this.CardapioViewModel.CarrinhoDAO.AddItem(msg);
+                MessagingCenter.Unsubscribe<Item>(this, "AdicionaItemCarrinho");
             });
         }
         protected override void OnDisappearing()
@@ -44,7 +50,7 @@ namespace ProjetoMobile.View
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<Item>(this, "ItemSelecionado");
             MessagingCenter.Unsubscribe<string>(this, "MeuCarrinho");
-            MessagingCenter.Unsubscribe<string>(this, "MeusPedidos");
-        }      
+            MessagingCenter.Unsubscribe<string>(this, "MeusPedidos");            
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjetoMobile.Model;
+using ProjetoMobile.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +13,26 @@ namespace ProjetoMobile.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CarrinhoView : ContentPage
 	{
-		public CarrinhoView ()
+        public CarrinhoViewModel CarrinhoViewModel { get; set; }
+		public CarrinhoView (List<Item> itens)
 		{
-			InitializeComponent ();
+            this.CarrinhoViewModel = new CarrinhoViewModel(itens);
+            this.BindingContext = this.CarrinhoViewModel;
+            InitializeComponent();            
 		}
+        protected override void OnAppearing()
+        {
+            
+            base.OnAppearing();            
+        }
         protected override void OnDisappearing()
         {
-            base.OnDisappearing();           
+            base.OnDisappearing();
+        }
+
+        private void listItensView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }

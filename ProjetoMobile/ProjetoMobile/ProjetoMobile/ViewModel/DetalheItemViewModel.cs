@@ -11,7 +11,7 @@ namespace ProjetoMobile.ViewModel
 {
     public class DetalheItemViewModel
     {        
-        private DetalheItemDAO DetalheItemDAO { get; set; }
+        private DetalheItemDAO DetalheItemDAO { get; set; }        
         public ICommand CommandAdicionarCarrinho { get; set; }
 
         #region Construtores
@@ -23,15 +23,7 @@ namespace ProjetoMobile.ViewModel
             {
                 MessagingCenter.Send<Item>(DetalheItemDAO.Item, "AdicionaItem");
             });            
-        }
-        public DetalheItemViewModel()
-        {
-            this.DetalheItemDAO = new DetalheItemDAO();
-            this.CommandAdicionarCarrinho = new Command(() =>
-            {
-                MessagingCenter.Send<Item>(DetalheItemDAO.Item, "AdicionaItem");
-            });
-        }
+        }        
         #endregion
 
         #region Binding

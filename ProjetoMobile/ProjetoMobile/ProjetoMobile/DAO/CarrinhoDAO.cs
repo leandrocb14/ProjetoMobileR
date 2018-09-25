@@ -8,15 +8,31 @@ namespace ProjetoMobile.DAO
     public class CarrinhoDAO
     {
 
-        private Carrinho carrinho;
-        public CarrinhoDAO(Carrinho carrinho)
+        public static List<Item> Itens { get; set; }
+
+        #region construtor
+        public CarrinhoDAO()
         {
-            this.carrinho = carrinho;
+            Itens = new List<Item>();
         }
+        public CarrinhoDAO(List<Item> itens)
+        {
+            //Itens = new List<Item>();
+            if (itens == null)
+            {
+                Itens = itens;
+            }
+        }
+        #endregion
 
         public void AddItem(Item item)
         {
-            
+            Itens.Add(item);
+        }
+
+        public List<Item> ListarItens()
+        {
+            return Itens;
         }
     }
 }
