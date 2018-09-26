@@ -3,6 +3,8 @@ using ProjetoMobile.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace ProjetoMobile.ViewModel
 {
@@ -13,9 +15,14 @@ namespace ProjetoMobile.ViewModel
         #region Construtor
         public CarrinhoViewModel(List<Item> itens = null)
         {
+            
             if (itens != null)
             {
                 this.CarrinhoDAO = new CarrinhoDAO(itens);
+                this.CommandFinalizaCompra = new Command(() =>
+                {
+                    MessagingCenter.Send<List<Item>>(CarrinhoDAO.Carrinho.Itens, "FinalizaCompra");
+                });
             }
             else
             {
@@ -26,6 +33,8 @@ namespace ProjetoMobile.ViewModel
         #endregion
 
         #region Binding
+        public ICommand CommandFinalizaCompra { get; set; }
+
         public bool CarrinhoTemItem
         {
             get
@@ -56,7 +65,7 @@ namespace ProjetoMobile.ViewModel
                 return $"Preço total: R$ {CalculaPrecoDeTodosItens().ToString("0.00")}";
             }
         }
-        
+
         public List<Item> ListarItensDoCarrinho
         {
             get
@@ -69,11 +78,11 @@ namespace ProjetoMobile.ViewModel
         #region Metodos
         private List<Item> ListarItens()
         {
-            return CarrinhoDAO.Itens;
+            return CarrinhoDAO.ListarItens();
         }
         private bool CarrinhoPossuiItens()
         {
-            return CarrinhoDAO.Itens.Count > 0;
+            return CarrinhoDAO.Carrinho.Itens.Count > 0;
         }
 
         private double CalculaPrecoDeTodosItens()
@@ -82,7 +91,7 @@ namespace ProjetoMobile.ViewModel
             foreach (var q in ListarItens())
             {
                 total += q.Preco;
-            }            
+            }
             return total;
         }
         #endregion

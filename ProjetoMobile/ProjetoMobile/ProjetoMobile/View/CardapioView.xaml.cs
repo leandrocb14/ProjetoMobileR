@@ -34,23 +34,23 @@ namespace ProjetoMobile.View
             MessagingCenter.Subscribe<string>(this, "MeuCarrinho", (msg) =>
             {
                 Navigation.PushAsync(new CarrinhoView(this.CardapioViewModel.CarrinhoDAO.ListarItens()));
-            });
-            MessagingCenter.Subscribe<string>(this, "MeusPedidos", (msg) =>
-            {
-                Navigation.PushAsync(new PedidoView());
-            });
+            });            
             MessagingCenter.Subscribe<Item>(this, "AdicionaItemCarrinho", (msg) =>
             {
                 this.CardapioViewModel.CarrinhoDAO.AddItem(msg);
                 MessagingCenter.Unsubscribe<Item>(this, "AdicionaItemCarrinho");
             });
+            MessagingCenter.Subscribe<string>("", "RemoveItensCarrinho", (msg) =>
+            {
+                this.CardapioViewModel.CarrinhoDAO.LimparTodosItens();                
+                MessagingCenter.Unsubscribe<string>("", "RemoveItensCarrinho");
+            });            
         }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<Item>(this, "ItemSelecionado");
-            MessagingCenter.Unsubscribe<string>(this, "MeuCarrinho");
-            MessagingCenter.Unsubscribe<string>(this, "MeusPedidos");            
+            MessagingCenter.Unsubscribe<string>(this, "MeuCarrinho");            
         }
     }
 }

@@ -10,24 +10,32 @@ using Xamarin.Forms.Xaml;
 
 namespace ProjetoMobile.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CarrinhoView : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CarrinhoView : ContentPage
+    {
         public CarrinhoViewModel CarrinhoViewModel { get; set; }
-		public CarrinhoView (List<Item> itens)
-		{
+        public CarrinhoView(List<Item> itens)
+        {
             this.CarrinhoViewModel = new CarrinhoViewModel(itens);
             this.BindingContext = this.CarrinhoViewModel;
-            InitializeComponent();            
-		}
+            InitializeComponent();
+        }
         protected override void OnAppearing()
         {
-            
-            base.OnAppearing();            
+            base.OnAppearing();
+            MessagingCenter.Subscribe<List<Item>>(this, "FinalizaCompra", async (msg) =>
+           {
+               var confirmacao = await DisplayAlert("Confirmação", "Você deseja realmente finalizar essa compra?", "Sim", "Não");
+               if (confirmacao)
+               {                   
+                   MessagingCenter.Send<string>("", "RemoveItensCarrinho");
+                   await Navigation.PopAsync();
+               }
+           });
         }
         protected override void OnDisappearing()
         {
-            base.OnDisappearing();
+            base.OnDisappearing();            
         }
 
         private void listItensView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

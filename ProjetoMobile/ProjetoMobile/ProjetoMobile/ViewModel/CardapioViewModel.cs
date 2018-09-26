@@ -11,7 +11,7 @@ namespace ProjetoMobile.ViewModel
     public class CardapioViewModel : BaseViewModel
     {
         public CardapioDAO CardapioDAO { get; set; }
-        public CarrinhoDAO CarrinhoDAO { get; set; }
+        public CarrinhoDAO CarrinhoDAO { get; set; }        
         public CardapioViewModel()
         {
             this.CarrinhoDAO = new CarrinhoDAO();

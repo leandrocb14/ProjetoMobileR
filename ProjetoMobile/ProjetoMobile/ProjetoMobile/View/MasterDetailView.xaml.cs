@@ -28,11 +28,7 @@ namespace ProjetoMobile.View
             MessagingCenter.Subscribe<string>(this, "MeuCarrinho", (msg) =>
             {
                 IsPresented = false;                
-            });
-            MessagingCenter.Subscribe<string>(this, "MeusPedidos", (msg) =>
-            {
-                IsPresented = false;                
-            });
+            });            
         }
 
         protected override void OnDisappearing()
@@ -40,8 +36,7 @@ namespace ProjetoMobile.View
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<Login>(this, "SucessoLogin");
             MessagingCenter.Unsubscribe<Login>(this, "UsuarioDeslogado");
-            MessagingCenter.Unsubscribe<string>(this, "MeuCarrinho");
-            MessagingCenter.Unsubscribe<string>(this, "MeusPedidos");
+            MessagingCenter.Unsubscribe<string>(this, "MeuCarrinho");            
             MessagingCenter.Unsubscribe<MasterDetailView>(this, "AdicionaCarrinho");
         }
     }

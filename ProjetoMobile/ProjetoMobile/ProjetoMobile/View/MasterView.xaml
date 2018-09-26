@@ -7,8 +7,7 @@
              x:Class="ProjetoMobile.View.MasterView">
     <StackLayout Margin="0, 10, 0, 10">
         <StackLayout VerticalOptions="FillAndExpand">
-            <Button Text="Meu carrinho" Command="{Binding CommandMeuCarrinho}" Style="{StaticResource buttonDefault}"></Button>
-            <Button Text="Meus pedidos" Command="{Binding CommandMeusPedidos}" Style="{StaticResource buttonDefault}"></Button>
+            <Button Text="Meu carrinho" Command="{Binding CommandMeuCarrinho}" Style="{StaticResource buttonDefault}"></Button>        
         </StackLayout>
         <StackLayout VerticalOptions="End">
             <Button Text="Sair" Command="{Binding CommandSair}" Style="{StaticResource buttonDefault}"></Button>

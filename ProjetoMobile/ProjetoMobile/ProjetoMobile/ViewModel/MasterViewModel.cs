@@ -27,11 +27,7 @@ namespace ProjetoMobile.ViewModel
             {
                 MessagingCenter.Send<string>("", "MeuCarrinho");
             });
-
-            this.CommandMeusPedidos = new Command(() =>
-            {
-                MessagingCenter.Send<string>("", "MeusPedidos");
-            });            
+            
         }
     }
 }

@@ -44,7 +44,7 @@
                 </ListView>
             </StackLayout>
             <StackLayout VerticalOptions="EndAndExpand" Padding="25">
-                <Button Text="Finalizar compra"  Style="{StaticResource buttonDefault}"></Button>
+                <Button Text="Finalizar compra"  Style="{StaticResource buttonDefault}" Command="{Binding CommandFinalizaCompra}"></Button>
             </StackLayout>
         </StackLayout>
     </StackLayout>

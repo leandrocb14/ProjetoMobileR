@@ -29,7 +29,7 @@ namespace ProjetoMobile.View
 
             MessagingCenter.Subscribe<Item>(this, "AdicionaItem", async (msgItem) =>
             {
-                var confirma = await DisplayAlert("Adicionar item", "Você tem certeza que deseja adicionar ao seu carrinho?", "Sim", "Não");
+                var confirma = await DisplayAlert("Confirmação", "Você tem certeza que deseja adicionar ao seu carrinho?", "Sim", "Não");
                 if (confirma)
                 {
                     MessagingCenter.Send<Item>(msgItem, "AdicionaItemCarrinho");
