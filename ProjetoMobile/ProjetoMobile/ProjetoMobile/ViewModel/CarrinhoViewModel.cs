@@ -19,9 +19,9 @@ namespace ProjetoMobile.ViewModel
             if (itens != null)
             {
                 this.CarrinhoDAO = new CarrinhoDAO(itens);
-                this.CommandFinalizaCompra = new Command(() =>
+                this.CommandConfirmaEntrega = new Command(() =>
                 {
-                    MessagingCenter.Send<List<Item>>(CarrinhoDAO.Carrinho.Itens, "FinalizaCompra");
+                    MessagingCenter.Send<List<Item>>(CarrinhoDAO.Carrinho.Itens, "ConfirmaEntrega");
                 });
             }
             else
@@ -33,7 +33,7 @@ namespace ProjetoMobile.ViewModel
         #endregion
 
         #region Binding
-        public ICommand CommandFinalizaCompra { get; set; }
+        public ICommand CommandConfirmaEntrega { get; set; }
 
         public bool CarrinhoTemItem
         {

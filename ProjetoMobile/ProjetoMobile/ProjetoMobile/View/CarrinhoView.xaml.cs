@@ -23,19 +23,16 @@ namespace ProjetoMobile.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingCenter.Subscribe<List<Item>>(this, "FinalizaCompra", async (msg) =>
+            MessagingCenter.Subscribe<List<Item>>(this, "ConfirmaEntrega", (msg) =>
            {
-               var confirmacao = await DisplayAlert("Confirmação", "Você deseja realmente finalizar essa compra?", "Sim", "Não");
-               if (confirmacao)
-               {                   
-                   MessagingCenter.Send<string>("", "RemoveItensCarrinho");
-                   await Navigation.PopAsync();
-               }
+               //MessagingCenter.Send<string>("", "RemoveItensCarrinho");
+
+               Navigation.PushAsync(new EnderecoView());
            });
         }
         protected override void OnDisappearing()
         {
-            base.OnDisappearing();            
+            base.OnDisappearing();
         }
 
         private void listItensView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

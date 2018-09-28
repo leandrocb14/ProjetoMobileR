@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Confirmações de entrega"
+             Style="{StaticResource backgroundColorDefault}"
+             x:Class="ProjetoMobile.View.EnderecoView">
+    <StackLayout Margin="5,10,5,10">
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal">
+                <Entry Placeholder="Logradouro" Keyboard="Text" WidthRequest="250" MaxLength="80"></Entry>
+                <Entry Placeholder="Numero" Keyboard="Numeric" MaxLength="5"></Entry>
+            </StackLayout>            
+            <Entry Placeholder="Complemento" Keyboard="Text" MaxLength="70"></Entry>
+            <Entry Placeholder="Bairro" Keyboard="Text" MaxLength="60"></Entry>
+            <StackLayout Orientation="Horizontal">                
+                <Picker Title="Forma de pagamento" SelectedItem="2">
+                    <Picker.Items>
+                        <x:String>Crédito</x:String>
+                        <x:String>Débito</x:String>
+                        <x:String>Dinheiro</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>            
+        </StackLayout>
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Button Text="Confirmar pedido" Style="{StaticResource buttonDefault}" Command="{Binding CommandConfirmarPedido}"></Button>
+        </StackLayout>        
+    </StackLayout>    
+</ContentPage>
