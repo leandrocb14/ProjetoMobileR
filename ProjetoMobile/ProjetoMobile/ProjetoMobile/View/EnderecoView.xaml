@@ -7,19 +7,13 @@
     <StackLayout Margin="5,10,5,10">
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Logradouro" Keyboard="Text" WidthRequest="250" MaxLength="80"></Entry>
-                <Entry Placeholder="Numero" Keyboard="Numeric" MaxLength="5"></Entry>
-            </StackLayout>            
-            <Entry Placeholder="Complemento" Keyboard="Text" MaxLength="70"></Entry>
-            <Entry Placeholder="Bairro" Keyboard="Text" MaxLength="60"></Entry>
-            <StackLayout Orientation="Horizontal">                
-                <Picker Title="Forma de pagamento" SelectedItem="2">
-                    <Picker.Items>
-                        <x:String>Crédito</x:String>
-                        <x:String>Débito</x:String>
-                        <x:String>Dinheiro</x:String>
-                    </Picker.Items>
-                </Picker>
+                <Entry Placeholder="Logradouro" Keyboard="Text" WidthRequest="250" MaxLength="80" Text="{Binding TextoLogradouro, Mode=TwoWay}"></Entry>
+                <Entry Placeholder="Numero" Keyboard="Numeric" MaxLength="5" Text="{Binding TextoNumero}"></Entry>
+            </StackLayout>
+            <Entry Placeholder="Complemento" Keyboard="Text" MaxLength="70" Text="{Binding TextoComplemento}"></Entry>
+            <Entry Placeholder="Bairro" Keyboard="Text" MaxLength="60" Text="{Binding TextoBairro}"></Entry>
+            <StackLayout Orientation="Horizontal">
+                <Picker Title="Forma de pagamento" ItemsSource="{Binding ListaFormasPagamento}" SelectedItem="{Binding PagamentoSelecionado}" SelectedIndex="1"></Picker>
             </StackLayout>            
         </StackLayout>
         <StackLayout VerticalOptions="EndAndExpand">

@@ -15,7 +15,7 @@ namespace ProjetoMobile.View
     {
         public EnderecoViewModel EnderecoViewModel { get; set; }
         public EnderecoView()
-        {
+        {            
             this.EnderecoViewModel = new EnderecoViewModel();
             this.BindingContext = this.EnderecoViewModel;
             InitializeComponent();
@@ -34,6 +34,16 @@ namespace ProjetoMobile.View
                     await Navigation.PopToRootAsync();
                 }
             });
+            MessagingCenter.Subscribe<string>(this, "CamposInvalidos", (msg) =>
+            {
+                DisplayAlert("Atenção", "Todos os campos dessa tela necessitam ser preenchidos!", "Ok");
+            });
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<string>(this, "CamposInvalidos");
+            MessagingCenter.Unsubscribe<string>(this, "ConfirmaPedido");
         }
     }
 }
